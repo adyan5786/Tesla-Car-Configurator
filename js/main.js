@@ -56,7 +56,7 @@ const updateTotalPrice = () => {
     accessoryCheckboxes.forEach((checkbox) => {
         // Extract the accessory label
         const accessoryLabel = checkbox.closest('label').querySelector('span').textContent.trim();
-        
+
         const accessoryPrice = pricing['Accessories'][accessoryLabel];
 
         // Add to current price if accessory is selected
@@ -199,3 +199,8 @@ interiorColourSection.addEventListener('click', handleColourButtonClick);
 wheelButtonsSection.addEventListener('click', handleWheelButtonClick);
 performanceBtn.addEventListener('click', handlePerformanceButtonClick);
 fullSelfDrivingCheckbox.addEventListener('change', fullSelfDrivingChange)
+
+// Prevent image dragging
+document.addEventListener("dragstart", (e) => {
+    if (e.target.tagName === "IMG") e.preventDefault();
+});
