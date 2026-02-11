@@ -20,6 +20,8 @@
 
 ## Screenshots
 
-![Some Screenshot]()
+![Screenshot 1](screenshot1.png)
 
-<p align="center">Some Page</p><br>
+![Screenshot 2](screenshot2.png)
+
+<p align="center">Tesla Car Configurator</p><br>
