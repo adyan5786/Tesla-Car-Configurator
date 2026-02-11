@@ -4,6 +4,7 @@ const interiorColourSection = document.querySelector('#interior-buttons');
 const exteriorImage = document.querySelector('#exterior-image');
 const interiorImage = document.querySelector('#interior-image');
 const wheelButtonsSection = document.querySelector('#wheel-buttons');
+const performanceBtn = document.querySelector('#performance-btn');
 
 let selectedColour = 'Stealth Grey';
 const selectedOptions = {
@@ -62,14 +63,14 @@ const handleColourButtonClick = (event) => {
             interiorImage.src = interiorImages[colour];
         }
     }
-}
+};
 
 // Update exterior image based on colour and wheels
 const updateExteriorImage = () => {
     const performanceSuffix = selectedOptions['Performance Wheels'] ? '-performance' : '';
     const colourKey = selectedColour in exteriorImages ? selectedColour : 'Stealth Grey';
     exteriorImage.src = exteriorImages[colourKey].replace('.jpg', `${performanceSuffix}.jpg`);
-}
+};
 
 // Wheel Selection
 const handleWheelButtonClick = (event) => {
@@ -83,10 +84,17 @@ const handleWheelButtonClick = (event) => {
         selectedOptions['Performance Wheels'] = event.target.textContent.includes('Performance');
         updateExteriorImage();
     }
+};
+
+// Performance Package Selection
+const handlePerformanceButtonClick = () => {
+    performanceBtn.classList.toggle('bg-gray-700');
+    performanceBtn.classList.toggle('text-white');
 }
 
 // Event Listeners
-window.addEventListener('scroll', () => requestAnimationFrame(handleScroll))
+window.addEventListener('scroll', () => requestAnimationFrame(handleScroll));
 exteriorColourSection.addEventListener('click', handleColourButtonClick);
 interiorColourSection.addEventListener('click', handleColourButtonClick);
 wheelButtonsSection.addEventListener('click', handleWheelButtonClick);
+performanceBtn.addEventListener('click', handlePerformanceButtonClick);
